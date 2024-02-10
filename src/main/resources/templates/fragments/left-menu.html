@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>simplebar-content</title>
+</head>
+<body>
+<div class="sidebar-content js-simplebar" th:fragment="sidebar-content">
+    <a class="sidebar-brand" th:href="@{/main}">
+        <span class="align-middle">Asset Unified System</span>
+    </a>
+
+    <ul class="sidebar-nav">
+        <li class="sidebar-header">
+            Pages
+        </li>
+
+        <li class="sidebar-item">
+            <a class="sidebar-link" th:href="@{/main}">
+                <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Главная</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a class="sidebar-link" th:href="@{/viewtables}">
+                <i class="align-middle" data-feather="trending-up"></i> <span class="align-middle">Реестр клиентов</span>
+            </a>
+        </li>
+
+        <li class="sidebar-item" sec:authorize="hasRole('ADMIN')">
+            <a class="sidebar-link" th:href="@{/edit}">
+                <i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">Внести Данные</span>
+            </a>
+        </li>
+
+        <li class="sidebar-item">
+            <a class="sidebar-link" th:href="@{/accounts}">
+                <i class="align-middle" data-feather="users"></i> <span class="align-middle">Linked Accounts</span>
+            </a>
+        </li>
+
+        <li class="sidebar-item">
+            <a class="sidebar-link" th:href="@{/prof}">
+                <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
+            <a class="sidebar-link" th:href="@{/payments}">
+                <i class="align-middle" data-feather="credit-card"></i> <span class="align-middle">Payments</span>
+            </a>
+        </li>
+
+        <li class="sidebar-header" sec:authorize="hasRole('ADMIN')">
+            For Admin Only
+        </li>
+
+        <li class="sidebar-item" sec:authorize="hasRole('ADMIN')">
+            <a class="sidebar-link" th:href="@{/create-news}">
+                <i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">Create News</span>
+            </a>
+        </li>
+        <li class="sidebar-item" sec:authorize="hasRole('ADMIN')">
+            <a class="sidebar-link" th:href="@{/clients}">
+                <i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">Clients</span>
+            </a>
+        </li>
+        <li class="sidebar-item" sec:authorize="hasRole('ADMIN')">
+            <a class="sidebar-link" th:href="@{/create}">
+                <i class="align-middle" data-feather="bar-chart-2"></i> <span
+                    class="align-middle">Create New Project</span>
+            </a>
+        </li>
+        <li class="sidebar-item" sec:authorize="hasRole('ADMIN')">
+            <a class="sidebar-link" th:href="@{/create-invoices}">
+                <i class="align-middle" data-feather="bar-chart-2"></i> <span
+                    class="align-middle">Invoices (test)</span>
+            </a>
+        </li>
+
+        <li class="sidebar-item" sec:authorize="hasRole('ADMIN')">
+            <a class="sidebar-link" th:href="@{/transactions}">
+                <i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">Transaction List (test)</span>
+            </a>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

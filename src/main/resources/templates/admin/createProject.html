@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Tony">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="shortcut icon" href="/static/img/icons/icon-48x48.png">
+    <link rel="shortcut icon" th:href="@{/img/icons/icon-48x48.png}">
+    <link rel="canonical" href="https://demo-basic.adminkit.io/">
+
+    <title>Create</title>
+
+    <link href="/static/css/app.css" rel="stylesheet">
+    <link th:href="@{/css/app.css}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="wrapper">
+    <nav id="sidebar" class="sidebar js-sidebar">
+        <div th:insert="~{fragments/left-menu :: sidebar-content}"></div>
+    </nav>
+    <div class="main">
+        <nav th:insert="~{fragments/top-menu :: nav-bar}"></nav>
+
+        <main class="content">
+            <div class="container-fluid p-0">
+
+                <div class="col-12 col-xl-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">Create-Project</h5>
+                        </div>
+
+                        <div class="card-body">
+                            <form th:method="POST" th:action="@{/create-project}">
+                                <div class="row">
+                                    <div class="mb-3 col-md-6">
+                                        <select class="form-select">
+                                            <option>Select type project</option>
+                                            <option>IPO</option>
+                                            <option>ICO</option>
+                                            <option>Shares</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="mb-3 col-md-6">
+                                        <label class="form-label">Name project</label>
+                                        <input type="text" class="form-control" placeholder="">
+                                    </div>
+                                    <div class="mb-3 col-md-6">
+                                        <label class="form-label">Offering Price</label>
+                                        <input type="text" class="form-control" placeholder="">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="mb-3 col-md-6">
+                                        <label class="form-label">Offering Shares</label>
+                                        <input type="text" class="form-control" placeholder="">
+                                    </div>
+                                    <div class="mb-3 col-md-6">
+                                        <label class="form-label">Market-Cap</label>
+                                        <input type="text" class="form-control" placeholder="">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="mb-3 col-md-4">
+                                        <label class="form-label">Status</label>
+                                        <input type="text" class="form-control" placeholder="">
+                                    </div>
+                                    <div class="mb-3 col-md-4">
+                                        <label class="form-label">ICO Date</label>
+                                        <input type="text" class="form-control" placeholder="">
+                                    </div>
+                                    <div class="mb-3 col-md-4">
+                                        <label class="form-label">Listing Date</label>
+                                        <input type="text" class="form-control" placeholder="">
+                                    </div>
+                                </div>
+
+
+                                <div class="mb-3">
+                                    <label class="form-label">ABOUT</label>
+                                    <textarea class="form-control" placeholder="" rows="2"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label w-100">Logo project</label>
+                                    <input type="file">
+                                    <small class="form-text text-muted"></small>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="row text-muted">
+                    <div class="col-6 text-start">
+                        <p class="mb-0">
+                            <a class="text-muted" href="https://adminkit.io/" target="_blank"><strong>AdminKit</strong></a>
+                            &copy;
+                        </p>
+                    </div>
+                    <div class="col-6 text-end">
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <a class="text-muted" href="https://adminkit.io/" target="_blank">Support</a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="text-muted" href="https://adminkit.io/" target="_blank">Help Center</a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="text-muted" href="https://adminkit.io/" target="_blank">Privacy</a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="text-muted" href="https://adminkit.io/" target="_blank">Terms</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+
+<script src="/static/js/app.js"></script>
+<script th:src="@{/js/app.js}"></script>
+
+</body>
+</html>

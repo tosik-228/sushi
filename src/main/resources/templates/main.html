@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Tony">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="shortcut icon" href="/static/img/icons/icon-48x48.png">
+    <link rel="shortcut icon" th:href="@{/img/icons/icon-48x48.png}">
+    <link rel="canonical" href="https://demo-basic.adminkit.io/">
+
+    <title>ANK | Главная</title>
+
+    <link href="/static/css/app.css" rel="stylesheet">
+    <link th:href="@{/css/app.css}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="wrapper">
+    <nav id="sidebar" class="sidebar js-sidebar">
+        <div th:insert="~{fragments/left-menu :: sidebar-content}"></div>
+    </nav>
+    <div class="main">
+        <nav th:insert="~{fragments/top-menu :: nav-bar}"></nav>
+        <main class="content">
+            <div class="container-fluid p-0">
+                <div class="row">
+                    <div class="col-xl-6 col-xxl-5 d-flex">
+                        <div class="w-100">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col mt-0">
+                                                    <h5 style="color: red" class="card-title">ДОЛГИ</h5>
+                                                </div>
+
+                                                <div class="col-auto">
+                                                    <div class="stat text-primary">
+                                                        <i class="align-middle" data-feather="dollar-sign"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h1 class="mt-1 mb-3">Р 10 000 000.43</h1>
+                                            <div class="mb-0">
+                                                <span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i> -3.65% </span>
+                                                <span class="text-muted">Since last week</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col mt-0">
+                                                    <h5 class="card-title">Задолженности</h5>
+                                                </div>
+
+                                                <div class="col-auto">
+                                                    <div class="stat text-primary">
+                                                        <i class="align-middle" data-feather="users"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h1 class="mt-1 mb-3">Р 1 000 000.45</h1>
+                                            <div class="mb-0">
+                                                <span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 5.25% </span>
+                                                <span class="text-muted">Since last week</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col mt-0">
+                                                    <h5 class="card-title">Чистый доход</h5>
+                                                </div>
+
+                                                <div class="col-auto">
+                                                    <div class="stat text-primary">
+                                                        <i class="align-middle" data-feather="dollar-sign"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h1 class="mt-1 mb-3">Р 3 500 000.06</h1>
+                                            <div class="mb-0">
+                                                <span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 6.65% </span>
+                                                <span class="text-muted">Since last week</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col mt-0">
+                                                    <h5 class="card-title">Orders</h5>
+                                                </div>
+
+                                                <div class="col-auto">
+                                                    <div class="stat text-primary">
+                                                        <i class="align-middle" data-feather="shopping-cart"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h1 class="mt-1 mb-3">64</h1>
+                                            <div class="mb-0">
+                                                <span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i> -2.25% </span>
+                                                <span class="text-muted">Since last week</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-2 col-xxl-7">
+                        <div class="card flex-fill w-100">
+                            <div class="card-header">
+
+                                <h5 class="card-title mb-0">График доходности</h5>
+                            </div>
+                            <div class="card-body py-3">
+                                <div class="chart chart-sm">
+                                    <canvas id="chartjs-dashboard-line"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="card-header">
+                    <h5 class="card-title mb-0" style="color: red">ДОЛЖНИКИ</h5>
+                </div>
+                <table class="table table-hover my-0">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Арендатор</th>
+                        <th>Период</th>
+                        <th>Аренда</th>
+                        <th>Коммуналка</th>
+                        <th>Итого</th>
+                        <th>
+                            <a th:href="@{/main/new}">
+                                <button class="btn-danger">ADD USER</button>
+                            </a>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <th:block th:each="list : ${list}">
+                        <tr>
+                            <td>[[${list.id}]]</td>
+                            <td>[[${list.name}]]</td>
+                            <td>[[${list.period}]]</td>
+                            <td>[[${list.rent}]]</td>
+                            <td>[[${list.communal_apartment}]]</td>
+                            <td>[[${list.result + ' рублей'}]]</td>
+                            <td>
+                                <a th:href="@{'/main/edit/' + ${list.id}}">Edit</a>
+                                <a th:href="@{'/main/delete/' + ${list.id}}">Delete</a>
+                            </td>
+                        </tr>
+                    </th:block>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+</div>
+<footer class="footer">
+    <div class="container-fluid">
+        <div class="row text-muted">
+            <div class="col-6 text-start">
+                <p class="mb-0">
+                    <a class="text-muted" href="https://adminkit.io/" target="_blank"><strong>AdminKit</strong></a>
+                    &copy;
+                </p>
+            </div>
+            <div class="col-6 text-end">
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <a class="text-muted" href="https://adminkit.io/" target="_blank">Support</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="text-muted" href="https://adminkit.io/" target="_blank">Help Center</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="text-muted" href="https://adminkit.io/" target="_blank">Privacy</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="text-muted" href="https://adminkit.io/" target="_blank">Terms</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

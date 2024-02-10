@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Tony">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="shortcut icon" href="/static/img/icons/icon-48x48.png">
+    <link rel="shortcut icon" th:href="@{/img/icons/icon-48x48.png}">
+    <link rel="canonical" href="https://demo-basic.adminkit.io/">
+
+    <title>ANK | Реестр</title>
+
+    <link href="/static/css/app.css" rel="stylesheet">
+    <link th:href="@{/css/app.css}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="wrapper">
+    <nav id="sidebar" class="sidebar js-sidebar">
+        <div th:insert="~{fragments/left-menu :: sidebar-content}"></div>
+    </nav>
+    <div class="main">
+        <nav th:insert="~{fragments/top-menu :: nav-bar}"></nav>
+        <main class="content">
+            <div class="container-fluid p-0">
+                <div class="col-xl-6 col-xxl-12 d-flex">
+                    <!--                    <div class="col-sm-6 col-lg-1 col-xxl-6">-->
+                    <div class="w-100">
+                        <div class="row">
+                            <div class="col-sm-11">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">Электроэнергия --> Светлые Горы</h5>
+                                </div>
+                                <table class="table table-hover my-0">
+                                    <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Арендатор</th>
+                                        <th>№ счетчика</th>
+                                        <th>Предыдущие</th>
+                                        <th>Новые</th>
+                                        <th>Итого</th>
+                                        <th>Без НДС</th>
+                                        <th>С НДС</th>
+                                        <th>
+                                            <a th:href="@{/viewtables/new}">
+                                                <button class="btn-danger">ADD USER</button>
+                                            </a>
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <th:block th:each="list : ${list}">
+                                        <tr>
+                                            <td>[[${list.id}]]</td>
+                                            <td>[[${list.name}]]</td>
+                                            <td>[[${list.counter_el}]]</td>
+                                            <td>[[${list.old}]]</td>
+                                            <td>[[${list.new1}]]</td>
+                                            <td>[[${list.result}]]</td>
+                                            <td>[[${list.withoutVAT}]]</td>
+                                            <td>[[${list.withVAT}]]</td>
+                                            <td>
+                                                <a th:href="@{'/viewtables/edit/' + ${list.id}}">Edit</a>
+                                                <a th:href="@{'/viewtables/delete/' + ${list.id}}">Delete</a>
+                                            </td>
+                                        </tr>
+                                    </th:block>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Водоснабжение --> Светлые Горы</h5>
+                        </div>
+                        <table class="table table-hover my-0">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Арендатор</th>
+                                <th>№ счетчика</th>
+                                <th>Предыдущие</th>
+                                <th>Новые</th>
+                                <th>Итого</th>
+                                <th>Без НДС</th>
+                                <th>С НДС</th>
+                                <th>
+                                    <a th:href="@{/viewtables/new}">
+                                        <button class="btn-danger">ADD USER</button>
+                                    </a>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <th:block th:each="list : ${list}">
+                                <tr>
+                                    <td>[[${list.id}]]</td>
+                                    <td>[[${list.name}]]</td>
+                                    <td>[[${list.counter_water}]]</td>
+                                    <td>[[${list.old}]]</td>
+                                    <td>[[${list.new1}]]</td>
+                                    <td>[[${list.result_water}]]</td>
+                                    <td>[[${list.withoutVAT}]]</td>
+                                    <td>[[${list.withVAT}]]</td>
+                                    <td>
+                                        <a th:href="@{'/viewtables/edit/' + ${list.id}}">Edit</a>
+                                        <a th:href="@{'/viewtables/delete/' + ${list.id}}">Delete</a>
+                                    </td>
+                                </tr>
+                            </th:block>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+</div>
+<footer class="footer">
+    <div class="container-fluid">
+        <div class="row text-muted">
+            <div class="col-6 text-start">
+                <p class="mb-0">
+                    <a class="text-muted" href="https://adminkit.io/" target="_blank"><strong>AdminKit</strong></a>
+                    &copy;
+                </p>
+            </div>
+            <div class="col-6 text-end">
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <a class="text-muted" href="https://adminkit.io/" target="_blank">Support</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="text-muted" href="https://adminkit.io/" target="_blank">Help Center</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="text-muted" href="https://adminkit.io/" target="_blank">Privacy</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="text-muted" href="https://adminkit.io/" target="_blank">Terms</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
